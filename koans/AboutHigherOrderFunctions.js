@@ -47,7 +47,7 @@ describe("About Higher Order Functions", function () {
 
     _(numbers).forEach(isEven);
     
-    expect(msg).toEqual(1);
+    expect(msg).toEqual('falsetruefalse');
     expect(numbers).toEqual([1, 2, 3]);
   });
     
@@ -72,9 +72,9 @@ describe("About Higher Order Functions", function () {
   });
 
   it("should use range to generate an array", function() {
-    expect(_.range(3)).toEqual([3]);
-    expect(_.range(1, 4)).toEqual([1, 2, 3, 4]);
-    expect(_.range(0, -4, -1)).toEqual([0, -1, -2, -3, -4]);
+    expect(_.range(3)).toEqual([0, 1, 2]);
+    expect(_.range(1, 4)).toEqual([1, 2, 3]);
+    expect(_.range(0, -4, -1)).toEqual([0, -1, -2, -3]);
   });
 
   it("should use flatten to make nested arrays easy to work with", function() {
