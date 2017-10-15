@@ -99,10 +99,20 @@ describe("About Functions", function() {
     var add = new Function("a", "b", "return a + b;");
     expect(add(1, 2)).toBe(3);
        
+    /*var multiply = function (a, b) {
+      //An internal comment
+      return a * b;
+    };
+    expect(multiply.toString()).toBe("function (a, b) {\n"
+    + "      //An internal comment\n"
+    + "      return a * b;\n"
+    + "    }"); */   
     var multiply = function (a, b) {
       //An internal comment
       return a * b;
     };
-    expect(multiply.toString()).toBe('function (a, b) {\n      //An internal comment\n      return a * b;\n    }');
-  });    
-});
+    var sourceNoWhitespace = multiply.toString().replace(/\s+/g, ' ');
+  
+    expect(sourceNoWhitespace).toBe("function (a, b) { //An internal comment return a * b; }");
+  });
+})
